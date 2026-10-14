@@ -31,26 +31,7 @@ The GitHub App commits as `notdocs`. Who made the change is recorded in the work
 
 ## Sharing without an account
 
-A guest needs an account. Anyone else can read a document you share by link or publish:
-
-- **Private**: only the people in the workspace.
-- **Anyone with the link**: the document has an address of its own, `acme.notdocs.dev/<project>/p/<id>`. It is not listed on the site and search engines are told not to index it.
-- **Public**: the document is on the project's published site, `acme.notdocs.dev/<project>/p/<path>`, with the other published documents in its sidebar, and in the sitemap.
-
-The setting is `visibility` in a document's frontmatter, so it is a commit like any other change and agents see it. A document without one takes it from the nearest folder whose `index.md` sets one, then from the project's default (`visibility` in `notdocs.config.json`), then from the organization's, which starts private. The project and organization defaults cover the documents under the docs root; the root files (README, AGENTS.md and the rest) and markdown read through include globs are published only by a setting of their own or of their folder. Templates are never published.
-
-- On a document, the globe button sets it and shows the address to send.
-- On a folder, "Who can read this…" in the sidebar menu sets it on the folder's `index.md`, and creates that file when the folder has none. The docs folder's own index speaks for every document under it.
-- The project's and the organization's defaults are under **Publishing** in the settings.
-- From a terminal, `notdocs publish <path> <public|link|private|inherit>`, `notdocs publish --project-default <level>` and `--org-default <level>`; without a level it prints who can read the document and where.
-
-Visitors read the default branch. A link in a published document to a document they may not read keeps its words and loses its address, images are served from the documents that show them, a query block lists the published documents it finds, and an embedded `![[image.png]]` shows the image. Comments, history and properties are never shown. A change shows on the next visit. Free shares by link; Solo and above publish a site, and on Free a document set to public is shared by link.
-
-Each published page is also the markdown file it is: add `.md` to its address (`index.md` for the home), or send an `Accept` header that prefers `text/markdown`, and the file comes back as written, frontmatter included. The site answers `llms.txt` under the project's base (`/<project>/p/llms.txt` on the subdomain, `/<project>/llms.txt` on a custom domain) with every listed page by the address of its markdown, and a search box in its header searches the listed pages by words, through `/api/public/search?org=<org>&project=<project>&q=<words>`, which answers JSON for an agent too. A visitor's search never uses embeddings. A browser that offers WebMCP gets the site's pages, a page's markdown and the search as read-only tools for its own agent.
-
-## Your own domain
-
-An organization's published documents can be served on a domain you own, `docs.acme.com/<project>/<path>`, set from the organization's settings or with `notdocs org domain set`. The settings show the DNS records to create and poll verification. The domain serves the published site, with its own sitemap; the workspace and sign-in stay on the organization's subdomain.
+A guest needs an account. Anyone else can read a document you share by link, or a project's published site: see [Publishing](publishing.md) for the levels, the addresses and a domain of your own.
 
 ## Plans
 

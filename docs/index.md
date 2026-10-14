@@ -58,7 +58,7 @@ Every command, for a local folder or a hosted workspace.
 - CLAUDE.md a section for agents, appended by notdocs init
 :::
 
-The content model is described under [Documents](documents.md), [Query blocks](query-blocks.md) and [Comments](comments.md); the page over the file under [The editor](editor.md); how edits meet under [Editing together](editing-together.md) and [Branches and merges](branches.md).
+The content model is described under [Documents](documents.md), [Query blocks](query-blocks.md) and [Comments](comments.md); the page over the file under [The editor](editor.md); how edits meet under [Editing together](editing-together.md) and [Branches and merges](branches.md); who can read it without an account under [Publishing](publishing.md).
 
 :::note[One dialect everywhere]
 The editor, the CLI and the MCP server all write through the same markdown pipeline, so a no-op save is a zero-line diff, and a file written by an agent looks like one written by a person.
