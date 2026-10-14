@@ -25,8 +25,8 @@ It becomes a project at `acme.notdocs.dev/<project>`. Or choose **Create docs re
 
 Every save is a commit on the branch you are viewing, made by the GitHub App. Pushes from anywhere else arrive through a webhook and re-index the changed files, so a commit from your editor or from CI shows up in the workspace without anything else to do.
 
-:::warning[Commits carry the app as committer]
-The GitHub App commits as `notdocs`. Who made the change is recorded in the workspace's history and change feed, not in the commit's author field.
+:::note[Who a commit is by]
+notdocs is the committer of every commit it makes; the author is whoever asked for the change, so the repository's own history says who changed what. A person's commits carry their name and email address. A commit an app connected over OAuth makes for a person (Claude, say) is authored by that person, with a `Via: <app>` trailer in its message naming the app. A commit made with a project token is authored by the token's name as `<name>@agent`. notdocs' own writes, such as stamping an `id` on a new file, carry no author of their own.
 :::
 
 ## Sharing without an account
@@ -45,3 +45,11 @@ Create a project token in settings or with the CLI, then connect over streamable
 notdocs link --url https://acme.notdocs.dev --project handbook
 notdocs status
 ```
+
+A write token can be limited to folders, so an agent that keeps the changelog cannot rewrite the handbook:
+
+```sh
+notdocs token create --name "changelog bot" --path docs/changelog --path notes
+```
+
+It still reads the whole project, but writes only documents, comments and images under those folders, given as paths from the repository root and matched without regard to case. A move must start and end inside them, and is refused when a document outside them links to the moved one, since that link would be rewritten in the same commit. Operations that write wherever the project needs (`markdown.fix`, `index.rebuild`, `docs.moveMany`) are refused to such a token. In the settings the same limit is "Folders it may write". Its commits are authored as `changelog bot@agent`, as above.
