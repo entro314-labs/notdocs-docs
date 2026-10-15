@@ -24,7 +24,8 @@ notdocs search "how do we bill yearly" --limit 5
 :::
 :::tab[Agents]
 The `search` tool takes `q` and `limit` and returns hits with the document id, path, title and a snippet, plus `semantic: true` when embeddings were used.
-::::::tab[Published sites]
+:::
+:::tab[Published sites]
 A published site has a search box in its header, over its listed pages alone, and `/api/public/search?org=<org>&project=<project>&q=<words>` answers the same hits as JSON for an agent. A visitor's search is full-text only: a query from someone with no account is never embedded.
 :::
 ::::
