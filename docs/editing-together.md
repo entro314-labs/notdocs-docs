@@ -38,11 +38,9 @@ A change can also land on disk while people type: an agent writing the file dire
 | Deployment | Sessions |
 |---|---|
 | Local daemon | On, held in the daemon process |
-| Self-hosted image | On: `docker compose` ships the K/V store; a single container without one sets `NOTDOCS_SESSIONS=process` |
 | Hosted | On: the instances share a session through the K/V store |
-| Anything else without a K/V store | Off; the editor works alone and edits are merged when they are saved, as before |
 
-Sessions travel down over Server-Sent Events and up by POST, with the same bearer as every other call, so the standard Next server the self-hosted image runs serves them without a WebSocket. The same routes serve every deployment.
+Sessions travel down over Server-Sent Events and up by POST, with the same bearer as every other call, and the same routes serve every deployment.
 
 ## What it costs
 
