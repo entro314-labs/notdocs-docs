@@ -57,7 +57,13 @@ docs/
 ````
 :::
 :::tab[HTML]
-A block of raw HTML is shown as what it draws, with scripts, event handlers, styles and unsafe links removed, in the editor and on the site alike. **Edit HTML** shows the source under it; a block with nothing left to draw shows its source with a line saying so. Inline HTML in a sentence (`a <kbd>key</kbd>`) is kept as written, so a save does not rewrite it.
+A block of raw HTML is shown as what it draws, with scripts, event handlers, styles and unsafe links removed, in the editor and on the site alike. **Edit HTML** shows the source under it; a block with nothing left to draw shows its source with a line saying so. Inline HTML in a sentence (`a <kbd>key</kbd>`) is kept as written, so a save does not rewrite it: its tags stay visible as quiet markers, the text between a pair of formatting tags (`<kbd>`, `<sub>`, `<sup>`, `<mark>`, `<abbr title>` and the like) is drawn in that element, and an inline `<img>` is drawn as the image.
+:::
+:::tab[Directives]
+Callouts are drawn in their colour whichever way they are written: `:::note`, `:::tip`, `:::info`, `:::warning`, `:::danger` and the other directive names, headed by a label when there is one (`:::note[Heads up]`), and quotes that open with a marker, GitHub's five (`> [!NOTE]`) and Obsidian's any other kind, in any case, with a fold marker or a title (`> [!tip]- Keep it short`). Any other container directive (`:::files`, `::::tabs` with `:::tab[Label]`, `::::steps`, `::::cards`, an MDD `:::letterhead`) is a framed block headed by its label or name, with its text edited in place; `:::files` draws its nested list as a file tree. A directive on a line of its own (`::page-break`, `::embed{src="…"}`) is a labelled rule.
+:::
+:::tab[Footnotes]
+A footnote reference (`a claim[^1]`) is a small raised label, and its definition (`[^1]: the source`, with indented paragraphs after it) a note block where it is written. Reference links and images (`[text][ref]`, `![alt][ref]`) and their definitions (`[ref]: https://…`) keep their form; a definition shows as its source line, since it draws nothing. On a published page the notes are listed after the text, each linked to and from its reference.
 :::
 :::tab[Code]
 Fenced code is syntax-highlighted as you type, and in the assistant's answers, for any language Shiki has a grammar for. Each grammar is fetched the first time a block asks for it, and a page with no code loads none of the highlighter. The colours follow the light or dark theme and are drawn over the text, not written into it.
