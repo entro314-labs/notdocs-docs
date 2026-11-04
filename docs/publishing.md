@@ -4,7 +4,7 @@ type: page
 title: Publishing
 description: "Share a document by link or publish a site of them: visibility levels, addresses, a domain of your own, and the markdown, llms.txt and search a site serves to agents."
 order: 17
-updated: 2026-10-14
+updated: 2026-11-04
 ---
 
 ## Three levels
@@ -74,6 +74,30 @@ Once the domain is verified, it is where a page's canonical address and the site
 ## What a visitor sees
 
 A visitor reads as a guest of the documents served to them. A link in a published document to a document they may not read keeps its words and loses its address; images are served from the documents that show them; a query block lists the published documents it finds; an embedded `![[image.png]]` shows the image. Comments, history and properties are never shown. A change shows on the next visit, and visitors are limited per address, since they have no credential.
+
+## Search results and link previews
+
+Every published page tells search engines and the platforms it is shared on what it is, with nothing to set up:
+
+- **Description**: the page's `description` frontmatter, else its first paragraph, cut where a result trails off.
+- **Share card**: Open Graph and X cards with the page's title, description and address. The image is the page's `image` frontmatter (an image in the repository, relative to the page as an image in its text is, or an https URL), else the site's default, else a card drawn from the page's title and the site's name.
+- **Structured data**: the organization that publishes the site, the site with its search, the page as a technical article with its last change, and the trail of folders above it that are pages too. A document shared by link gets a card, so its link previews where it is pasted, but no structured data, and is never indexed.
+
+`site` in `notdocs.config.json` sets what every page falls back on. An owner changes it in Settings › Published site, with `notdocs config site`, or through `config.update`:
+
+```json
+{
+  "site": {
+    "description": "How Acme works: onboarding, on-call and the decisions behind them.",
+    "image": "assets/cover.png",
+    "twitter": "@acme",
+    "language": "en-GB",
+    "signals": { "search": true, "aiInput": true, "aiTrain": false }
+  }
+}
+```
+
+The description stands in for a home page without one and fills the site's `llms.txt`. The image is a path from the repository root or an https URL; 1200×630 suits every platform. The language is a BCP 47 tag; without one it is the project's search language. `signals` are the [Content Signals](https://contentsignals.org) the site's robots.txt states: whether its pages may be indexed for search, read by AI assistants to answer a question, and used to train AI models. Search and AI answers are allowed and training is not unless you change them. Every project of an organization shares one robots.txt on its subdomain and its custom domain, so it states the strictest choice among them, and a project that turns search off also asks for no indexing on each of its pages.
 
 ## For agents
 
