@@ -88,6 +88,6 @@ A document shared by link is served at `<id>.md` to whoever holds the id, and ne
 
 ## Plans
 
-Free shares by link: a document set to public is reachable at its id and never listed or indexed. Solo and above publish a site. Team and above serve it on a domain of your own. The local daemon publishes nothing. The [pricing page](https://notdocs.dev/pricing) lists the rest.
+Every plan publishes a site. On Free its pages end with a "Published with notdocs" line, which Pro and above leave off, and Pro and above serve it on a domain of your own. The local daemon publishes nothing. The [pricing page](https://notdocs.dev/pricing) lists the rest.
 
 This documentation is itself a notdocs project published this way: markdown files in a git repository, with `"visibility": "public"` in its `notdocs.config.json`.
