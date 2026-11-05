@@ -4,12 +4,12 @@ type: page
 title: Business documents
 description: "Letters, proposals, invoices, contracts, memos, reports, terms, privacy policies, NDAs, DPAs and SLAs as MDD, exported to PDF and Word."
 order: 19
-updated: 2026-09-16
+updated: 2026-11-05
 ---
 
 ## Documents that leave the repository
 
-Eleven built-in types are business documents: `letter`, `proposal`, `invoice`, `contract`, `memo` and `report`, and the legal set `terms`, `privacy`, `nda`, `dpa` and `sla`. They are ordinary notdocs documents, with properties, a place on boards, comments and history, and they are also [MDD](https://www.npmjs.com/package/@markdownkit/mdd) documents: the frontmatter carries MDD's `document-type`, `date` and `author`, and the body uses MDD's blocks for the parts a professional document has that a wiki page does not.
+Eleven built-in types are business documents: `letter`, `proposal`, `invoice`, `contract`, `memo` and `report`, and the legal set `terms`, `privacy`, `nda`, `dpa` and `sla`. They are ordinary notdocs documents, with properties, a place on boards, comments and history, and they are also [MDD](https://notdocs.dev/mdd) documents: the frontmatter carries MDD's `document-type`, `date` and `author`, and the body uses MDD's blocks for the parts a professional document has that a wiki page does not.
 
 ```markdown title="docs/letters/offer.md"
 ---

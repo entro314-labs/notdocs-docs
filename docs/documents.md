@@ -4,7 +4,7 @@ type: page
 title: Documents
 description: "Markdown with frontmatter: ids, types, templates and custom types."
 order: 10
-updated: 2026-09-30
+updated: 2026-11-05
 ---
 
 ## Anatomy
@@ -32,7 +32,7 @@ Frontmatter shows in the workspace as properties; the body is the editor. The ed
 
 A document is a `.md` file, and also an `.mdd`, an `.mdc` or an `.mdx`:
 
-- `.mdd` is an [MDD](business-documents.md) document, the same dialect with its directives, read and saved exactly like `.md`.
+- `.mdd` is an [MDD](https://notdocs.dev/mdd) document, the same dialect with its directives, read and saved exactly like `.md`; see [business documents](business-documents.md).
 - `.mdc` is markdown with frontmatter, most often Cursor's rules. Those live in `.cursor/`, so they are a coding agent's files and read only with `agentFiles` on; an `.mdc` anywhere else is read like `.md`.
 - `.mdx` is read-only. It is listed, indexed, searched, linked and shown, its JSX and `import` and `export` lines as written and never run, but notdocs does not save it: the markdown serializer would escape those lines and its `{expressions}` and turn an indented JSX child into a code block. The editor opens it read-only with a note saying so, and `docs.update`, `docs.create` and `notdocs docs edit` refuse it; `notdocs lint` passes it by. Edit it in your editor. Like any document it gets an `id` in its frontmatter the first time notdocs indexes it; that edit leaves the body's bytes alone.
 
