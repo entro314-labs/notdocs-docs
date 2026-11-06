@@ -31,16 +31,11 @@ An agent's write goes to the file instead, merged as below, when the session doe
 
 ## When the file changes underneath
 
-A change can also land on disk while people type: an agent writing the file directly, a push to the branch, a checkout on the local daemon. The server folds it into the session with the same three-way merge a save uses, and the top bar says who made it and where, when notdocs knows. Where the change touches other lines than the session, both survive and nobody has to do anything. Where the two collide, the session's version is kept and written, the page says so and names whose version stays in the History, so nothing is lost either way.
+A change can also land on disk while people type: an agent writing the file directly, or a push to the branch. The server folds it into the session with the same three-way merge a save uses, and the top bar says who made it and where, when notdocs knows. Where the change touches other lines than the session, both survive and nobody has to do anything. Where the two collide, the session's version is kept and written, the page says so and names whose version stays in the History, so nothing is lost either way.
 
 ## Where sessions run
 
-| Deployment | Sessions |
-|---|---|
-| Local daemon | On, held in the daemon process |
-| Hosted | On: the instances share a session through the K/V store |
-
-Sessions travel down over Server-Sent Events and up by POST, with the same bearer as every other call, and the same routes serve every deployment.
+The hosted service holds every session and shares it between its instances, so the people on a document meet in one session whichever instance their tab reached. Sessions travel down over Server-Sent Events and up by POST, with the same bearer as every other call.
 
 ## What it costs
 

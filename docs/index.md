@@ -2,7 +2,7 @@
 id: 01M33YRM8RP2HKGZ3MGVAE31E8
 type: page
 title: Overview
-description: "How notdocs works: markdown files in git, run hosted or locally, edited in the browser, from the CLI and by agents over MCP."
+description: "How notdocs works: markdown files in git, hosted on notdocs.dev, edited in the browser, from the CLI and by agents over MCP."
 updated: 2026-09-22
 ---
 
@@ -22,7 +22,7 @@ flowchart LR
   index --> mcp
 ```
 
-The hosted service at notdocs.dev reads and commits through a GitHub App. Locally, the same code runs as a daemon on your machine against any folder, with no account.
+The hosted service at notdocs.dev reads and commits through a GitHub App you install.
 
 ## Pick a path
 
@@ -30,14 +30,11 @@ The hosted service at notdocs.dev reads and commits through a GitHub App. Locall
 :::card[Hosted]{href="hosted.md" icon="branch"}
 Sign in, install the GitHub App, pick a repository. Every save is a commit.
 :::
-:::card[Local]{href="local.md" icon="folder"}
-The daemon and the CLI on your machine, against any folder, offline.
-:::
 :::card[Agents]{href="https://notdocs.dev/agents" icon="sparkle"}
 Give Claude Code, Cursor or any MCP client the same workspace.
 :::
 :::card[CLI]{href="https://notdocs.dev/cli" icon="code"}
-Every command, for a local folder or a hosted workspace.
+Every command, for a hosted workspace or a folder an agent works in.
 :::
 ::::
 
@@ -53,7 +50,6 @@ Every command, for a local folder or a hosted workspace.
   - roadmap.md type: page
 - .notdocs/
   - comments/ one YAML file per document that has threads
-  - index/ the local daemon's index
 - notdocs.config.json docs root, custom types, ignored paths
 - CLAUDE.md a section for agents, appended by notdocs init
 :::
