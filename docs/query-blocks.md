@@ -24,12 +24,14 @@ groupBy: status
 
 | Key | Values | What it does |
 |---|---|---|
-| `type` | a document type | Only documents of this type |
+| `type` | a document type, or a list of them | Only documents of these types |
 | `where` | a map of frontmatter key to value | Only documents whose frontmatter matches every entry |
+| `path` | a folder path | Only documents under it |
 | `sort` | a frontmatter key, or `-key` | Order; a leading minus sorts descending |
 | `view` | `table`, `board`, `list`, `calendar`, `gallery` | How the result renders; `table` is the default |
 | `groupBy` | a frontmatter key | Columns of a board, or sections of a gallery |
 | `dateKey` | a frontmatter key | The key a calendar places a document by; `date`, then `due`, when unset |
+| `columns` | a list of frontmatter keys | Which keys a table shows as columns |
 | `limit` | a number | At most this many documents |
 
 ## Views
@@ -57,5 +59,5 @@ One card per document: its `cover` image when the frontmatter names one (a path 
 The web app renders a query block in place. `notdocs query '<yaml>'` prints the same groups in the terminal, and the `query.run` operation is a tool for agents, so a board on a page and a board in an agent's context are the same answer.
 
 :::tip
-The project's home page is itself a query over tasks, switchable between board, table and list, with changes per day drawn above it.
+The project's home page is itself a query, switchable between the five views, with a list per document type and changes per day drawn above it.
 :::

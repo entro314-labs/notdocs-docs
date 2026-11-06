@@ -69,7 +69,7 @@ The subdomain is also the workspace, so the rest of it still asks people to sign
 
 An organization's published documents can be served on a domain you own, set from the organization's settings or with `notdocs org domain set docs.acme.com`; the settings and `notdocs org domain status` show the DNS records to create and whether the domain is verified. The domain serves the published site and nothing else: a project's pages are at `docs.acme.com/<project>/<path>`, without the `p`, its root lists the organization's published projects (or opens the one site when there is one), and it has its own `robots.txt` and sitemap. The workspace and sign-in stay on the organization's subdomain.
 
-Once the domain is verified, it is where a page's canonical address and the sitemap point. A domain under notdocs.dev itself is refused, since the organization already has its subdomain there. A custom domain is part of the Team plan and above; on a plan without one it is kept, unserved, and serves again when the plan includes one.
+Once the domain is verified, it is where a page's canonical address and the sitemap point. A domain under notdocs.dev itself is refused, since the organization already has its subdomain there. A custom domain is part of the Pro plan and above; on a plan without one it is kept, unserved, and serves again when the plan includes one.
 
 ## What a visitor sees
 
@@ -112,6 +112,6 @@ A document shared by link is served at `<id>.md` to whoever holds the id, and ne
 
 ## Plans
 
-Every plan publishes a site. On Free its pages end with a "Published with notdocs" line, which Pro and above leave off, and Pro and above serve it on a domain of your own. The local daemon publishes nothing. The [pricing page](https://notdocs.dev/pricing) lists the rest.
+Every plan publishes a site. On Free its pages end with a "Published with notdocs" line, which Pro and above leave off, and Pro and above serve it on a domain of your own. The [pricing page](https://notdocs.dev/pricing) lists the rest.
 
 This documentation is itself a notdocs project published this way: markdown files in a git repository, with `"visibility": "public"` in its `notdocs.config.json`.

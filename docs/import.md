@@ -17,20 +17,20 @@ updated: 2026-09-23
 notdocs import notion ./Export-….zip --into docs/notion --dry-run
 notdocs import notion ./Export-….zip --into docs/notion
 ```
-Database rows become typed documents: a row whose database has a Status property becomes a `task`, everything else a `page`. Properties become frontmatter, fitted to the task's fields: Urgent, High, Medium and Low priorities become `p0` to `p3`, several people in a text field such as Assignee are joined, and a number or date is written as text; a value that still does not fit keeps its place as `notion<Name>` (`notionPriority: Someday`), and so does a Type property, since the importer sets `type`. The `Export-<uuid>/` wrapper and the page ids in file names and links are stripped, and two pages whose names are then the same become `Name.md` and `Name-2.md`, links included.
+Database rows become typed documents: a row whose Status is one notdocs knows (Not started, To do, Backlog, In progress, Blocked, In review, Done, Complete) becomes a `task`, everything else a `page`. Properties become frontmatter, fitted to the task's fields: Urgent, High, Medium and Low priorities become `p0` to `p3`, several people in a text field such as Assignee are joined, and a number or date is written as text; a value that still does not fit keeps its place as `notion<Name>` (`notionPriority: Someday`), and so does a Type property, since the importer sets `type`. The `Export-<uuid>/` wrapper and the page ids in file names and links are stripped, and two pages whose names are then the same become `Name.md` and `Name-2.md`, links included.
 :::
 :::tab[Obsidian]
 ```sh
 notdocs import obsidian ~/Vaults/work --into docs --dry-run
 notdocs import obsidian ~/Vaults/work --into docs
 ```
-Wikilinks become relative markdown links resolved against the vault's file list, embeds become images or links, and callouts pass through untouched because they are already GFM alerts.
+Wikilinks become relative markdown links resolved against the vault's file list (`--keep-wikilinks` leaves them as written), embeds become images or links, and callouts pass through untouched because they are already GFM alerts. An Anasa vault imports the same way.
 :::
 :::tab[Word]
 ```sh
 notdocs import docx ./Offer.docx ./Terms.docx --into docs/word
 ```
-Each file becomes one page named after it, titled by its first heading. Headings, text, lists, tables and links are converted through [md-docx](https://github.com/markdownkit/md-docx); the pictures inside the file are stored the way pasted images are (in the repository under `assets/`, or in the object store on the hosted service) and the page shows them from there. An agent does the same with the `docs_import` MCP tool, which takes the file base64-encoded.
+Each file becomes one page named after it, titled by its first heading. Headings, text, lists, tables and links are converted through [md-docx](https://github.com/markdownkit/md-docx); the pictures inside the file are stored the way pasted images are and the page shows them from there. `--title <title>` names the page instead of its first heading. An agent does the same with the `docs_import` MCP tool, which takes the file base64-encoded.
 :::
 ::::
 

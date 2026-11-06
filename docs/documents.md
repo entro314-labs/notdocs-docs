@@ -12,7 +12,7 @@ updated: 2026-11-05
 A document is markdown with YAML frontmatter. Two keys matter:
 
 - `id`, a ULID that notdocs stamps on a file the first time it sees it, so links survive a rename.
-- `type`, which picks the schema: `page`, `task`, `decision`, `spec`, `meeting`, `launch`, or a custom type from `notdocs.config.json`.
+- `type`, which picks the schema: one of the built-in types listed below, from `page` and `task` to the business documents, or a custom type from `notdocs.config.json`.
 
 ```markdown title="docs/tasks/login.md" {2,3}
 ---
@@ -58,7 +58,7 @@ A document links to another with a `[[wikilink]]`, which names it by title, file
 
 ## Images
 
-Paste an image into a page, drop it there, or pick one with `/image`; `notdocs assets upload <file>` and the `assets_upload` MCP tool do the same for an agent. Where it is stored depends on the deployment: see [Images](editor.md#images) on the editor page.
+Paste an image into a page, drop it there, or pick one with `/image`; `notdocs assets upload <file>` and the `assets_upload` MCP tool do the same for an agent. See [Images](editor.md#images) on the editor page for where it is stored.
 
 ## Built-in types
 
@@ -171,7 +171,7 @@ audience: support
 
 Templates are keyed by name, and several can start documents of one type: `prd` and `rfc` are both specs, `adr` is a decision. `notdocs templates` lists them and the [Templates](templates.md) page maps them to the stage of a product where each is written. Files in `docs/_templates/` are the repository's own; their frontmatter `type` decides the schema they produce and a `description` is shown in the list, and one named like a built-in replaces it. `notdocs docs new docs/tasks/login.md --template task` starts from one, and the workspace's new-document dialog lists them.
 
-Custom types are declared in `notdocs.config.json`, which also sets the docs root (default `docs/`, where new documents go; `""` is the whole repository), the root files that count as documents (`README.md`, `CHANGELOG.md`, `CLAUDE.md`, `AGENTS.md`, in whatever case the repository spells them, so `readme.md` counts), `include`: globs of markdown read where it is besides the docs root (`"projects/**"`), `agentFiles`: whether the files coding agents keep count as documents (instructions below the root such as `packages/api/CLAUDE.md`, anything in `.claude/`, `.cursor/` and the like, Copilot's prompts, `skills/<name>/` and a plugin's commands and skills; `false` unless set), paths to ignore, and `searchLanguage`: the language full-text search stems and drops stop words in (`english` unless set; `simple` stems nothing, for a workspace of mixed languages; or the name of any text search configuration Postgres ships, such as `german` or `french`).
+Custom types are declared in `notdocs.config.json`, which also sets the docs root (default `docs/`, where new documents go; `""` is the whole repository), the root files that count as documents (`README.md`, `CHANGELOG.md`, `CLAUDE.md`, `AGENTS.md`, in whatever case the repository spells them, so `readme.md` counts), `include`: globs of markdown read where it is besides the docs root (`"projects/**"`), `agentFiles`: whether the files coding agents keep count as documents (instructions below the root such as `packages/api/CLAUDE.md`, anything in `.claude/`, `.cursor/` and the like, Copilot's prompts, `skills/<name>/` and a plugin's commands and skills; `false` unless set), paths to ignore, and `searchLanguage`: the language full-text search stems and drops stop words in (`english` unless set; `simple` stems nothing, for a workspace of mixed languages; or one of `danish`, `dutch`, `finnish`, `french`, `german`, `greek`, `hungarian`, `italian`, `norwegian`, `portuguese`, `romanian`, `russian`, `spanish`, `swedish` and `turkish`).
 
 ```json title="notdocs.config.json"
 {

@@ -17,7 +17,7 @@ It gets a subdomain, `acme.notdocs.dev`. Organizations have owners and members; 
 Install it on the GitHub account that owns your repositories. GitHub sends you back to attach the installation to your organization. Your notdocs account needs a GitHub connection for this step (sign in with GitHub, or add GitHub to your account in your profile): the installation is attached only if that GitHub account can reach it. An organization can only register repositories of the account it connected.
 :::
 :::step[Pick a repository]
-It becomes a project at `acme.notdocs.dev/<project>`. Or choose **Create docs repo**, which makes a private `<login>/<slug>-docs` repository seeded with the starter files and registers it as the "Docs" project.
+It becomes a project at `acme.notdocs.dev/<project>`. Or, when the App is installed on a GitHub organization, choose **Create docs repo**, which makes a private `<login>/<slug>-docs` repository seeded with the starter files and registers it as the "Docs" project; GitHub does not let an app create repositories under a personal account.
 :::
 ::::
 

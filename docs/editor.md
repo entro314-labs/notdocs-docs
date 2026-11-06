@@ -80,7 +80,7 @@ Settings has an Appearance section, and the sidebar's footer opens a smaller pan
 - **Cursor**: a line, or an underline or a block over the next character.
 - **Toolbar**: floating over a selection, pinned above the text, or hidden.
 - **Text spacing**: Relaxed opens letters, words, lines and paragraphs of running text.
-- **Comments on the page**: on hover, or in the margin as cards beside their text; see [Comments](comments.md).
+- **Comments on the page**: in the panel, on hover, or in the margin as cards beside their text; see [Comments](comments.md).
 
 ## Keyboard
 

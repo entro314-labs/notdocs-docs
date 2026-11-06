@@ -41,7 +41,6 @@ The hosted service holds every session and shares it between its instances, so t
 
 - While a session is on, the [Source view](editor.md#read-edit-source) shows the markdown but does not edit it; leave the session (close the other tabs) to edit the text as source.
 - At most 1.5 seconds of typing can be lost if the server process crashes between two writes.
-- The hosted service needs its K/V store; without one the API says sessions are off and the editor works alone.
 
 ## Compared with a merge on save
 
@@ -53,8 +52,5 @@ The toolbar, Read and Source, and the blocks that draw.
 :::
 :::card[Branches and merges]{href="branches.md" icon="branch"}
 What happens when a save meets another save.
-:::
-:::card[Local]{href="local.md" icon="folder"}
-The daemon on your machine, sessions included.
 :::
 ::::

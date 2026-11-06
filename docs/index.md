@@ -51,7 +51,7 @@ Every command, for a hosted workspace or a folder an agent works in.
 - .notdocs/
   - comments/ one YAML file per document that has threads
 - notdocs.config.json docs root, custom types, ignored paths
-- CLAUDE.md a section for agents, appended by notdocs init
+- AGENTS.md a section for agents, appended by notdocs init to it and to CLAUDE.md when they exist
 :::
 
 The content model is described under [Documents](documents.md), [Query blocks](query-blocks.md) and [Comments](comments.md); the page over the file under [The editor](editor.md); how edits meet under [Editing together](editing-together.md) and [Branches and merges](branches.md); who can read it without an account under [Publishing](publishing.md).
